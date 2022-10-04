@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+
 h1 {
     color: green;
 }
@@ -14,6 +21,3 @@ h2 {
     color: #ccc;
 }
 
-* {
-    color: red;
-}
