@@ -112,9 +112,18 @@ section h2 {
 
 #entertainment {
     background-color: #ffa3f0;
-    color: rgb(0, 0, 0);
 }
 
 #entertainment .articles article a {
     background-color: black;
 }
+
+#tech {
+    background-color: rgb(0, 161, 236);
+
+}
+
+#tech .articles article a {
+    background-color: rgba(28, 64, 202, 0.4);
+}
+
