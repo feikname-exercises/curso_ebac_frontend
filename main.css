@@ -13,3 +13,7 @@ header li {
     margin: 0 auto 0 auto; /* Sentido horário partindo do topo */
 
 }
+
+.articles {
+    display: flex;
+}
