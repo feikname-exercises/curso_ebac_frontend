@@ -65,4 +65,22 @@ section h2,
     color: white;
     padding: 8px;
     display: inline-block;
+    text-decoration: none;
+}
+
+.articles article a:hover {
+    text-decoration: underline;
+}
+
+.articles article p, 
+.articles article a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.articles h3 {
+    font-size: 24px;
+}
+
+section h2 {
+    font-size: 32px;
 }
