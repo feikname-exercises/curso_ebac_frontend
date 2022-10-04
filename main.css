@@ -4,9 +4,14 @@
     padding: 0;
 }
 
+body > header {
+    background-color: #2f3640;
+    padding: 16px 0;
+}
 header .container {
     display: flex;
 }
+
 header li {
     display: inline;
 }
@@ -33,4 +38,8 @@ header li {
     items usando o justify-content: space-between 
     */
     width: 30%; 
+}
+
+section {
+    padding: 16px 0;
 }
