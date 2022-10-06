@@ -1,3 +1,4 @@
+/* Seção com o CSS herdado da template */
 * {
     margin: 0;
     padding: 0;
@@ -41,24 +42,27 @@ button:hover {
     background-color: #27ae60;
 }
 
-.success-message {
+/* CSS relacionado a erros e sucessos */
+#success-message {
     background-color: #27ae60;
     padding: 16px;
     color: #fff;
-    display: none;
 }
 
-.error-message {
+#error-message {
     padding: 8px;
     background-color: red;
     color: #fff;
     margin-bottom: 8px;
     font-size: 12px;
-    display: none;
 }
 
-input.error {
+input.invalid {
     color: red;
     border-color: red;
     outline-color: red;
+}
+
+.hidden {
+    display:none;
 }

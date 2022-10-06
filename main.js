@@ -1,45 +1,64 @@
-const form = document.getElementById("form-deposito");
-const nomeBeneficiario = document.getElementById("nome-beneficiario");
+const form = document.getElementById("form");
+const inputA = document.getElementById("numero-a")
+const inputB = document.getElementById("numero-b")
+const containerSuccessMsg = document.getElementById("success-message")
+const containerErrorMsg = document.getElementById("error-message")
 let formValido = false
+let podeApagarMsgSucesso = false
 
-function validaNome(nomeCompleto) {
-    const nomeComoArray = nomeCompleto.split(" ");
-    return nomeComoArray.length >= 2 ? true : false;
+function validaAB(a, b) {
+    return b > a ? true : false
 }
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const numeroContaBeneficiario = document.getElementById("numero-conta");
-    const valorDeposito = document.getElementById("valor-deposito");
+    if(!formValido) {
+        return
+    } 
 
-    const containerMensagemSucesso = document.querySelector('.success-message');
+    containerSuccessMsg.classList.remove("hidden")
+    inputA.value = ""
+    inputB.value = ""
 
-    const mensagemSucesso = `Montante de <b>${valorDeposito.value}</b> depositado para o cliente <b>${nomeBeneficiario.value}</b> - conta: <b>${numeroContaBeneficiario.value}</b>`
-    
-    if (!formValido) {
+    formValido = false
+
+    podeApagarMsgSucesso = false
+    setInterval(function() {
+        podeApagarMsgSucesso = true
+    }, 500)
+})
+
+const checkErrorOnChange = function() {
+    // Remover mensagem de sucesso ao começar uma nova entrada de dados se for
+    // feita 500ms depois do último submit para evitar que desapareça
+    // imediatamente devido ao keyup forçado da tecla enter ao enviar
+    if(podeApagarMsgSucesso) {
+        containerSuccessMsg.classList.add("hidden")
+    }
+
+    // Ignorar lógica de erro se algum dos dois campos estiver vazio.
+    // Infelizmente tambem ignora caso contenha dados inválidos (letras) devido
+    // ao jeito que input[type="number"] funciona.
+    if(inputA.value == "" || inputB.value == "") {
         return
     }
 
-    containerMensagemSucesso.innerHTML = mensagemSucesso;
-    containerMensagemSucesso.style.display = "block"
-    
-    nomeBeneficiario.value = ""
-    numeroContaBeneficiario.value = ""
-    valorDeposito.value = ""
+    // Proceder para a validação normal
+    if(validaAB(Number(inputA.value), Number(inputB.value))) {
+        formValido = true
 
-})
-
-nomeBeneficiario.addEventListener('keyup', function(e) {
-    formValido = validaNome(e.target.value)
-
-    const containerMensagemErro = document.querySelector('.error-message');
-
-    if(!formValido) {
-        nomeBeneficiario.classList.add('error')
-        containerMensagemErro.style.display = "block"
+        inputA.classList.remove("invalid")
+        inputB.classList.remove("invalid")
+        containerErrorMsg.classList.add("hidden")
     } else {
-        nomeBeneficiario.classList.remove('error');
-        containerMensagemErro.style.display = "none"
+        formValido = false
+
+        inputA.classList.add("invalid")
+        inputB.classList.add("invalid")
+        containerErrorMsg.classList.remove("hidden")
     }
-})
+}
+
+inputA.addEventListener("keyup", checkErrorOnChange)
+inputB.addEventListener("keyup", checkErrorOnChange)
