@@ -6,6 +6,7 @@ $(document).ready(function () {
     $('header button').click((e) => {
         $('form').slideDown()
         $(e.target).fadeOut(150)
+        $('input[type="text"]').focus()
     })
 
     $("#botao-cancelar").click(() => {
@@ -26,5 +27,6 @@ $(document).ready(function () {
         novoItem.fadeIn(250)
 
         $('input[type="text"]').val('')
+        $('input[type="text"]').focus()
     })
 })
