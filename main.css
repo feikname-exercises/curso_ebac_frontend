@@ -5,15 +5,17 @@
     font-family: Roboto, "sans-serif";
 }
 
+body {
+    background-color: #efefef;
+}
+
 header {
-    background-color: #5f27cd;
+    background-color: #ee9e26;
     padding: 16px 0;
     color: white;
     display: flex;
-    border-bottom: 16px solid #341f97;
+    border-bottom: 16px solid rgba(0, 0, 0, 0.5);
     justify-content: center;
-    text-transform: uppercase;
-    font-style: italic;
 }
 
 header button {
@@ -55,39 +57,44 @@ button:hover {
     background-color: red;
 }
 
-ul {
-    display: flex;
-    flex-wrap: wrap;
+#botao-cancelar:hover {
+    background-color: rgb(241, 75, 75);
 }
 
-ul li {
-    max-width: 25%;
-    list-style: none;
-    position: relative; /* para o overlay */
-    max-height: 180px;
-    overflow-y: hidden;
+form input[type="text"] {
+    width: 250px;
 }
 
-li img {
-    width: 100%;
+.container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px 16px;
+    text-align: center;
 }
 
-.overlay-imagem-link {
-    padding: 16px;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: all ease 250ms;
+#container-ul {
+    margin-top: 24px;
+    background-color: #dedede;
 }
 
-.overlay-imagem-link a {
-    text-decoration: none;
-    color: #fff;
+li {
+    font-size: 24px;
+    cursor: pointer;
 }
 
-ul li:hover .overlay-imagem-link {
-    opacity: 1;
+li:not(li:last-of-type) {
+    margin-bottom: 16px;
+}
+
+.cortado-pequeno {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #ff0000aa;
+}
+
+.cortado-grande {
+    text-decoration: line-through;
+    text-decoration-thickness: 4px;
+    text-decoration-color: #ff0000aa;
 }

@@ -1,24 +1,30 @@
+toggleTarefa = function (e) {
+    $(e.target).toggleClass("cortado-grande")
+}
+
 $(document).ready(function () {
-    $("header button").click(() => {
-        $("form").slideDown()
+    $('header button').click((e) => {
+        $('form').slideDown()
+        $(e.target).fadeOut(150)
     })
 
     $("#botao-cancelar").click(() => {
         $("form").slideUp()
+        $("header button").fadeIn(150)
     })
 
-    $("form").on("submit", (e) => {
+    $('form').on('submit', (e) => {
         e.preventDefault()
 
-        const enderecoDaNovaImagem = $('input[type="url"]').val()
-        const novoItem = $('<li style="display:none"></li>')
-        $(`<img src="${enderecoDaNovaImagem}">`).appendTo(novoItem)
-        $(`<div class="overlay-imagem-link">
-            <a href="${enderecoDaNovaImagem}" target="_blank" title="ver imagem em tamanho real">Ver imagem em tamanho real</a>
-        </div>`).appendTo(novoItem)
+        $('#informe-sem-tarefas').hide()
 
-        novoItem.appendTo("ul")
+        const novaTarefa = $('input[type="text"]').val()
+        const novoItem = $('<li style="display:none"></li>')
+        novoItem.text(novaTarefa)
+        novoItem.click(toggleTarefa)
+        novoItem.appendTo('ul')
         novoItem.fadeIn(250)
-        $('input[type="url"]').val("")
+
+        $('input[type="text"]').val('')
     })
 })

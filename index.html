@@ -5,31 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery</title>
+    <title>Lista de Tarefas - Flávio Monteiro</title>
     <link rel="stylesheet" href="./main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>Galeria de fotos</h1>
-        <!-- Redundante? -->
-        <button type="button">Nova imagem +</button>
+        <h1>Lista de tarefas</h1>
+        <button type="button">Nova tarefa +</button>
     </header>
     <form>
-        <h2>Inserir nova imagem</h2>
-        <input type="url" placeholder="URL da imagem" required>
+        <h2>Inserir nova tarefa</h2>
+        <input type="text" placeholder="Descrição da tarefa" required>
         <button type="submit">Adicionar</button>
         <button type="Reset" id="botao-cancelar">Cancelar</button>
     </form>
-    <ul>
-        <li>
-            <img src="./cat.jpg" alt="">
-            <div class="overlay-imagem-link"><a href="./cat.jpg" target="_blank">Ver imagem em tamanho real</a></div>
-        </li>
-    </ul>
+    <section class="container" id="container-ul">
+        <ul>
+            <span id="informe-sem-tarefas">Ainda não há tarefas aqui.</span>
+        </ul>
+    </section>
+    <div class="container">
+        <strong>Dica: </strong> clique em qualquer tarefa para <span
+        class="cortado-pequeno">marca-la</span> ou desmarca-la como feita.
+    </div>
     <script src="./jquery-3.6.1.min.js"></script>
     <script src="./main.js"></script>
 </body>
