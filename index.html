@@ -28,16 +28,16 @@
             <div class="container">
                 <ul>
                     <li>
-                        <a href="#">Sobre</a>
+                        <a href="#sobre-a-loja">Sobre</a>
                     </li>
                     <li>
-                        <a href="#">Em destaque</a>
+                        <a href="#em-destaque">Em destaque</a>
                     </li>
                     <li>
-                        <a href="#">Promoções</a>
+                        <a href="#promocoes">Promoções</a>
                     </li>
                     <li>
-                        <a href="#">Contato</a>
+                        <a href="#contato">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -164,7 +164,7 @@
             </ul>
         </div>
     </section>
-    <section class="container">
+    <section class="container" id="contato">
         <h2>Entre em contato</h2>
         <form>
             <div class="form-campo">
@@ -221,65 +221,7 @@
     <script src="./js/jquery.mask.min.js"></script>
     <script src="./js/jquery.validate.min.js"></script>
     <script src="./js/messages_pt_BR.min.js"></script> <!-- for jquery validate -->
-    <script>
-        $(document).ready(function () {
-            $('#carousel-imagens').slick({ autoplay: true })
-        })
-        $('.menu-hamburguer').click(function () {
-            $('nav').slideToggle();
-        })
-
-        let brazilTelMaskBehavior = function (val) {
-            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-        }
-
-        let brazilTelMaskOptions = {
-            onKeyPress: function (val, e, field, options) {
-                field.mask(brazilTelMaskBehavior.apply({}, arguments), options);
-            },
-            placeholder: "(__) _____-____"
-        };
-
-        $('#telefone').mask(brazilTelMaskBehavior, brazilTelMaskOptions);
-
-        $('form').validate({
-            rules: {
-                nome: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                telefone: {
-                    required: true
-                },
-                mensagem: {
-                    required: true
-                },
-                "veiculo-interesse": {
-                    required: true
-                },
-
-            },
-            messages: {
-                nome: "Por favor, insira seu nome",
-                telefone: "Por favor, insira seu telefone",
-                mensagem: "Por favor, digite sua mensagem",
-                "veiculo-interesse": "Por favor, informe o veículo de interesse",
-            },
-            submitHandler: function(form) {
-
-            },
-            invalidHandler: function(evento, validador) {
-                let numeroCamposIncorretos = validador.numberOfInvalids();
-                console.log(numeroCamposIncorretos)
-                if(numeroCamposIncorretos > 0) {
-
-                }
-            },
-        })
-    </script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
