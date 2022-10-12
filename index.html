@@ -164,17 +164,120 @@
             </ul>
         </div>
     </section>
+    <section class="container">
+        <h2>Entre em contato</h2>
+        <form>
+            <div class="form-campo">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div class="form-campo">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone">
+            </div>
+            <div class="form-campo">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="form-campo">
+                <label for="veiculo-interesse">Veículo de interesse:</label>
+                <input type="text" id="veiculo-interesse" name="veiculo-interesse">
+            </div>
+            <div class="form-campo">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container container-flex">
+            2022 &copy; EBAC Motors - Todos os direitos reservados
+            <ul class="container-flex">
+                <li>
+                    <a href="#">
+                        <img src="./icones/facebook.png" alt="Facebook">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./icones/instagram.png" alt="Instagram">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./icones/youtube.png" alt="Youtube">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./js/jquery.mask.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/messages_pt_BR.min.js"></script> <!-- for jquery validate -->
     <script>
         $(document).ready(function () {
             $('#carousel-imagens').slick({ autoplay: true })
         })
         $('.menu-hamburguer').click(function () {
             $('nav').slideToggle();
+        })
+
+        let brazilTelMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        }
+
+        let brazilTelMaskOptions = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(brazilTelMaskBehavior.apply({}, arguments), options);
+            },
+            placeholder: "(__) _____-____"
+        };
+
+        $('#telefone').mask(brazilTelMaskBehavior, brazilTelMaskOptions);
+
+        $('form').validate({
+            rules: {
+                nome: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                telefone: {
+                    required: true
+                },
+                mensagem: {
+                    required: true
+                },
+                "veiculo-interesse": {
+                    required: true
+                },
+
+            },
+            messages: {
+                nome: "Por favor, insira seu nome",
+                telefone: "Por favor, insira seu telefone",
+                mensagem: "Por favor, digite sua mensagem",
+                "veiculo-interesse": "Por favor, informe o veículo de interesse",
+            },
+            submitHandler: function(form) {
+
+            },
+            invalidHandler: function(evento, validador) {
+                let numeroCamposIncorretos = validador.numberOfInvalids();
+                console.log(numeroCamposIncorretos)
+                if(numeroCamposIncorretos > 0) {
+
+                }
+            },
         })
     </script>
 </body>
