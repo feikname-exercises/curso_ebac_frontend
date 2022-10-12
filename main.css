@@ -5,10 +5,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-html {
-    overflow-x: hidden;
-}
-
 .container {
     max-width: 1024px;
     width: 100%;
@@ -21,12 +17,6 @@ header, footer {
     color: white;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
 
 header > .container,
 footer > .container {
@@ -35,78 +25,18 @@ footer > .container {
     padding-bottom: 16px;
 }
 
-nav {
-    background-color: #575fcf;
-    padding: 16px 0;
-    display: none;
-}
-
-nav li {
-    list-style: none;
-    display: inline;
-    margin-right: 16px;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-nav li a {
-    color: white;
-    text-decoration: none;
-}
-
-.menu-hamburguer {
-    width: 32px;
-    cursor: pointer;
-}
-
-.menu-hamburguer span {
-    height: 2px;
-    width: 100%;
-    background-color: #fff;
-    margin-bottom: 4px;
-    display: block;
-}
-
 .container-flex {
     display: flex;
 }
 
-#sobre-a-loja img {
-    max-width: 400px;
-    margin-right: 24px;
-}
-
 section {
-    padding: 48px 0;
+    padding: 16px 0;
 }
 
 section h2 {
     margin-bottom: 16px;
 }
 
-.lista-veiculos {
-    flex-wrap: wrap;
-}
-
-.lista-veiculos li {
-    list-style: none;
-    max-width: 30%;
-    margin-bottom: 24px;
-}
-
-.lista-veiculos img {
-    max-width: 100%;
-}
-
-.lista-veiculos li h3 {
-    margin: 16px 0;
-}
-
-/* Dispensa o uso de .item-central */
-.lista-veiculos li:nth-child(3n+2) {
-    margin: 0 5%;
-}
 
 button {
     display: block;
@@ -122,16 +52,6 @@ button {
     border-radius: 6px;
 }
 
-.price {
-    margin: 16px 0;
-    display: block;
-}
-
-.price del {
-    color: #ccc;
-    font-size: 14px;
-}
-
 .form-campo {
     margin-bottom: 16px;
 }
@@ -141,7 +61,8 @@ button {
 }
 
 .form-campo input, 
-.form-campo textarea {
+.form-campo textarea,
+.form-campo select {
     width: 100%;
     padding: 8px;
 }
@@ -168,11 +89,10 @@ footer li img {
     height: 32px;
 }
 
-footer .container {
-    justify-content: space-between;
-    align-items: center;
-}
-
 label.error {
     color: red;
+}
+
+#combo-cidade-estado {
+    justify-content: space-between;
 }

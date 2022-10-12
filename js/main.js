@@ -1,4 +1,5 @@
 // Há qualquer diferença entre usar isso e o script ja estar no final de body?
+/*
 $(document).ready(function () {
     $('#carousel-imagens').slick({ autoplay: true })
 
@@ -61,3 +62,4 @@ $(document).ready(function () {
         }, 500)
     })
 })
+*/
