@@ -1,25 +1,20 @@
 // Há qualquer diferença entre usar isso e o script ja estar no final de body?
-/*
 $(document).ready(function () {
-    $('#carousel-imagens').slick({ autoplay: true })
-
-    $('.menu-hamburguer').click(function () {
-        $('nav').slideToggle();
-    })
-    
     let brazilTelMaskBehavior = function (val) {
         return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
     }
     
     let brazilTelMaskOptions = {
-        onKeyPress: function (val, e, field, options) {
-            field.mask(brazilTelMaskBehavior.apply({}, arguments), options);
+        onKeyPress: function() {
+            field.mask(brazilTelMaskBehavior.apply());
         },
         placeholder: "(__) _____-____"
     };
     
     $('#telefone').mask(brazilTelMaskBehavior, brazilTelMaskOptions);
-    
+    $('#cpf').mask('000.000.000-00', {reverse: true});
+    $('#cep').mask('00000-000');
+
     $('form').validate({
         rules: {
             nome: {
@@ -32,34 +27,24 @@ $(document).ready(function () {
             telefone: {
                 required: true
             },
-            mensagem: {
+            cpf: {
                 required: true
             },
-            "veiculo-interesse": {
+            cep: {
                 required: true
             },
-    
-        },
-        submitHandler: function (form) {
-            // TODO
-        },
-        invalidHandler: function (evento, validador) {
-            let numeroCamposIncorretos = validador.numberOfInvalids();
-            console.log(numeroCamposIncorretos)
-            if (numeroCamposIncorretos > 0) {
-    
+            logradouro: {
+                required: true
+            },
+            bairro: {
+                required: true
+            },
+            cidade: {
+                required: true
+            },
+            estado: {
+                required: true
             }
         },
     })
-
-    $('.lista-veiculos button').click(function() {
-        const destino = $('#contato')
-        const nomeVeiculo = $(this).parent().find('h3').text()
-        $('#veiculo-interesse').val(nomeVeiculo)
-
-        $('html').animate({
-            scrollTop: destino.offset().top
-        }, 500)
-    })
 })
-*/
