@@ -1,0 +1,22 @@
+@use 'config';
+
+body {
+    background-color: config.$mainBackgroundColor;
+}
+
+section {
+    padding: 56px 0;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: config.$tabletMaxWidth) {
+    .container {
+        max-width: 80%;
+    }
+}
+

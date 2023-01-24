@@ -1,0 +1,51 @@
+@use 'config';
+
+ul.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+
+    li.product-item {
+        list-style: none;
+
+        img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        a.product-button {
+            display: block;
+            background-color: config.$productButtonBgColor;
+            color: config.$productButtonTextColor;
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 8px;
+            margin-top: 8px;
+            text-decoration: none;
+
+            &:hover {
+                background-color: lighten($color: config.$productButtonBgColor, $amount: 5%);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: config.$tabletMaxWidth) {
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: config.$mobileMaxWidth) {
+    .products {
+        display: block;
+    }
+
+    .product-item {
+        margin-bottom: 32px;
+    }
+}

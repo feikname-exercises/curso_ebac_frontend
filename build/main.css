@@ -2,15 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
   background-color: #f5f6fa;
 }
 
-li {
-  list-style: none;
+section {
+  padding: 56px 0;
 }
 
 .container {
@@ -19,13 +19,17 @@ li {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1023px) {
+  .container {
+    max-width: 80%;
+  }
+}
 header {
   background-color: #182C61;
   position: sticky;
   top: 0;
   left: 0;
 }
-
 header .container {
   display: flex;
   justify-content: space-between;
@@ -33,25 +37,20 @@ header .container {
   padding: 16px 0;
 }
 
-.menu {
+ul.menu {
   display: flex;
 }
-
-.menu li {
+ul.menu li {
+  list-style: none;
   font-weight: bold;
   margin-left: 24px;
 }
-
-.menu li a {
+ul.menu li a {
   color: #fff;
   text-decoration: none;
 }
 
-section {
-  padding: 56px 0;
-}
-
-.products {
+ul.products {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(3, 32.66%);
@@ -59,13 +58,14 @@ section {
   row-gap: 4%;
   width: 100%;
 }
-
-.product-item img {
+ul.products li.product-item {
+  list-style: none;
+}
+ul.products li.product-item img {
   width: 100%;
   border-radius: 16px;
 }
-
-.product-button {
+ul.products li.product-item a.product-button {
   display: block;
   background-color: #44bd32;
   color: #fff;
@@ -75,15 +75,11 @@ section {
   margin-top: 8px;
   text-decoration: none;
 }
-
-.product-button:hover {
-  background-color: #4cd137;
+ul.products li.product-item a.product-button:hover {
+  background-color: #4fcc3d;
 }
 
 @media screen and (max-width: 1023px) {
-  .container {
-    max-width: 80%;
-  }
   .products {
     grid-template-columns: repeat(2, 48.5%);
     column-gap: 3%;

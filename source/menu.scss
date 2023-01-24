@@ -1,0 +1,16 @@
+@use 'config';
+
+ul.menu {
+    display: flex;
+
+    li {
+        list-style: none;
+        font-weight: bold;
+        margin-left: 24px;
+
+        a {
+            color: config.$menuTextColor;
+            text-decoration: none;
+        }
+    }
+}
