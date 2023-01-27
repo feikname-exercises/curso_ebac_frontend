@@ -1,28 +1,3 @@
-@breakpointMobile: ~"(max-width: 767px)";
-@breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
-
-@import 'variaveis.less';
-
-@import 'reset.less';
-@import 'header-and-menu.less';
-
-body {
-    background-color: #vars.colors[backgroundColor];
-}
-
-.container {
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto;
-
-    @media @breakpointTablet {
-        max-width: 80%;
-    }
-}
-
-section {
-    padding: 56px 0;
-}
 
 ul.products {
     margin-top: 40px;
